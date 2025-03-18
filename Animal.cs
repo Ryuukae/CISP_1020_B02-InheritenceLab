@@ -3,9 +3,9 @@ using InheritanceLab;
 
 namespace InheritanceLab
 {
-    /// <summary>  
-    /// Represents a generic animal with a name, age, and species.
-    /// This class is the base class for other animal types.
+    /// <summary>
+    /// Represents an unknown animal with properties for name, age, and species.
+    /// This class serves as the base class for all specific animal types.
     /// </summary>
     public class Animal
     {
@@ -22,31 +22,25 @@ namespace InheritanceLab
         /// <value>The species of the animal as a string.</value>
         public string Species
         {
-            get
-            {
-                return _species;
-            }
-            set
-            {
-                _species = value;
-            }
+            get { return _species; }
+            set { _species = value; }
         }
 
         /// <summary>
         /// Gets or sets the name of the animal.
         /// </summary>
         /// <value>The name of the animal as a string.</value>
-        public string Name { get; set; }
-
+        public string Name { get; set; } = "Unknown";
+        
         /// <summary>
         /// Gets or sets the age of the animal.
         /// This property is accessible only within this class and its derived classes.
         /// </summary>
         /// <value>The age of the animal in years.</value>
-        protected int Age { get; set; }
+        protected int Age { get; set; } = 0;
 
         /// <summary>
-        /// Constructor to initialize an Animal with a name, age, and species.
+        /// Initializes a new instance of the <see cref="Animal"/> class.
         /// </summary>
         /// <param name="name">The name of the animal.</param>
         /// <param name="age">The age of the animal.</param>
@@ -59,19 +53,31 @@ namespace InheritanceLab
         }
 
         /// <summary>
-        /// Makes a generic sound.
+        /// Makes an unknown animal sound.
+        /// This method is overriden in derived classes to provide animal-specific sounds.
         /// </summary>
         public virtual void MakeSound() 
         {
-            Console.WriteLine("Some generic sound.");
+            Console.WriteLine("Unknown animal sound.");
         }
 
         /// <summary>
-        /// Displays information about the animal, including its name, age, and species.
+        /// Displays the properties of the object.
+        /// This method is overridden in derived classes to provide specific descriptions.
         /// </summary>
-        public virtual void DisplayInfo() 
+        public virtual void PrintObjectProperties() 
         {
             Console.WriteLine($"Class: {GetType().Name}, Name: {Name}, Age: {Age}, Species: {Species}");
+
+        }
+
+        /// <summary>
+        /// Describes the animal, including its class, name, age, and species.
+        /// This method is overridden in derived classes to provide specific descriptions.
+        /// </summary>
+        public virtual void Describe()
+        {
+            Console.WriteLine($"This is a {Species}, a type of {GetType().Name}, named {Name} who is {Age} years old.");
         }
     }
 }

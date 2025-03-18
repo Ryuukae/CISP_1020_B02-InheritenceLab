@@ -4,11 +4,12 @@ using InheritanceLab;
 namespace InheritanceLab
 {
     /// <summary>
-    /// This class represents reptiles with a name, age, and species by extending the <see cref="Animal"/> class.
-    /// The class also includes a property to indicate whether the reptile can regrow its tail.
+    /// Represents reptiles, and includes an additional property, HasRattler.
+    /// This class extends the <see cref="Animal"/> class and adds behaviour specific to reptiles.
     /// </summary>
     public class Reptile : Animal
     {
+
         /// <summary>
         /// Gets or sets a value indicating whether the reptile can regrow its tail.
         /// </summary>
@@ -16,37 +17,46 @@ namespace InheritanceLab
         public bool CanRegrowTail { get; set; }
 
         /// <summary>
-        /// Creates a new reptile with the specified name, age, and species.
+        /// Initializes a new instance of the <see cref="Reptile"/> class.
         /// </summary>
         /// <param name="name">The name of the reptile.</param>
         /// <param name="age">The age of the reptile.</param>
         /// <param name="species">The species of the reptile.</param>
-        public Reptile(string name, int age, string species) : base(name, age, species) { }
+        /// <param name="canRegrowTail">Indicates whether the reptile can regrow its tail.</param>
+        public Reptile(string name, int age, string species, bool canRegrowTail) : base(name, age, species)
+        {
+            CanRegrowTail = canRegrowTail;
+        }
 
         /// <summary>
-        /// Makes a sound specific to reptiles.
+        /// Overriden method that makes a sound specific to reptiles.
         /// </summary>
         public override void MakeSound()
         {
             Console.WriteLine("Reptile sound.");
         }
 
-        /// <summary>
-        /// Demonstrates accessing the protected Age property in an 
-        /// external class throuh a derived class.
+        // <summary>
+        /// Displays the properties of the object.
+        /// This method is overridden to provide specific descriptions.
         /// </summary>
-        /// <returns>The age of the reptile.</returns>
-        public int GetAgeFromDerivedClass()
+        public override void PrintObjectProperties()
         {
-            return this.Age; // Accessing the protected Age property is allowed here.
+            Console.WriteLine($"Class: {GetType().Name}, Name: {Name}, Age: {Age}, Species: {Species}, CanRegrowTail: {CanRegrowTail}");
         }
 
         /// <summary>
-        /// Displays information about the reptile.
+        /// Displays information about the reptile, including its name, age, species, and whether it
+        /// can regrow its tail.
+        /// This method is overridden to provide specific descriptions.
         /// </summary>
-        public override void DisplayInfo()
+        public override void Describe()
         {
-            Console.WriteLine($"Class: {GetType().Name}, Name: {Name}, Age: {Age}, Species: {Species}, Can Regrow Tail: {CanRegrowTail}");
+            Console.WriteLine($"This is a {Species}, a type of {GetType().Name}, named {Name}, and who is {Age} years old, and {(CanRegrowTail ? "can" : "cannot")} regrow its tail.");
+        }
+        public int GetAgeFromDerivedClass()
+        {
+            return this.Age; // Accessing the protected Age property is allowed here.
         }
     }
 }
