@@ -22,6 +22,7 @@ namespace InheritanceLab
         /// <param name="age">The age of the snake.</param>
         /// <param name="species">The species of the snake.</param>
         /// <param name="hasRattler">Indicates whether the snake has a rattler.</param>
+        /// <returns>Initialized <see cref="Snake"/> object.</returns>
         public Snake(string name, int age, string species, bool hasRattler) : base(name, age, species, canRegrowTail: false)
         {
             HasRattler = hasRattler;

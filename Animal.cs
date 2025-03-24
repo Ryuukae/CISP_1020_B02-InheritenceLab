@@ -45,6 +45,7 @@ namespace InheritanceLab
         /// <param name="name">The name of the animal.</param>
         /// <param name="age">The age of the animal.</param>
         /// <param name="species">The species of the animal.</param>
+        /// <returns>An instance of the <see cref="Animal"/> class.</returns>
         public Animal(string name, int age, string species)
         {
             Name = name;

@@ -15,6 +15,7 @@ namespace InheritanceLab
         /// <param name="age">The age of the frog.</param>
         /// <param name="species">The species of the frog.</param>
         /// <param name="isAquatic">Indicates whether the frog is aquatic.</param>
+        /// <returns>An instantiated instance of the <see cref="Frog"/> class.</returns>
         public Frog(string name, int age, string species, bool isAquatic) : base(name, age, species, isAquatic) { }
 
         /// <summary>

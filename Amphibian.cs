@@ -22,6 +22,7 @@ namespace InheritanceLab
         /// <param name="age">The age of the amphibian.</param>
         /// <param name="species">The species of the amphibian.</param>
         /// <param name="isAquatic">Indicates whether the amphibian is aquatic.</param>
+        /// <returns>An instantiated <see cref="Amphibian"/>  object.</returns>
         public Amphibian(string name, int age, string species, bool isAquatic) : base(name, age, species)
         {
             IsAquatic = isAquatic;

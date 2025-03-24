@@ -2,6 +2,12 @@
 using InheritanceLab;
 using System.Collections.Generic;
 
+/** NOTICE **/
+/* Regarding the use of artificial intelligence in the development of this software, the following notice is provided: */
+/* AI-generated inline code suggestions were used to assist in drafting and revising the XML commentation. The suggestions were revised to ensure clarity, accuracy, and perseverance of the author's voice and character, if used. */
+/* AI was used as a tool to review commit messages and provide suggestions for improvement and completeness. The suggestions were revised to ensure clarity, accuracy, and perseverance of the author's voice and character, if used. */
+/* The code itself, and the answer to the discussion question below, were written entirely by the developer. */
+
 /*** Access Modifier Discussion ***/
 //----------------------------------------------------------------------------------------------------
 /** Discuss (as comments) how access modifiers can help protect sensitive
@@ -27,16 +33,13 @@ access to this information have it, thus limiting exposure to potential threats 
 namespace InheritanceLab
 {
     /// <summary>
-    /// This class functions as the primary entry point of the application,
-    /// initializing core components and orchestrating the
-    /// flow of execution.
+    /// This class functions as the primary entry point of the application
     /// </summary>
     class Program
     {
         /// <summary>
-        /// The method that kicks off the program execution and
+        /// This method kicks off program execution and
         /// serves as the starting point of the application.
-        /// This method initializes necessary components and begins execution.
         /// </summary>
         /// <param name="args">The command-line arguments.</param>
         static void Main(string[] args)
@@ -111,6 +114,10 @@ namespace InheritanceLab
 
             // Use a method in a derived class to access the Age property
             Console.WriteLine($"Reptile Age (Accessed via method): {reptile.GetAgeFromDerivedClass()}");
+
+            // Keep the console open
+            Console.Write("\nPress any key to exit...");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -119,11 +126,18 @@ namespace InheritanceLab
         /// <param name="animals">A list of Animal objects.</param>
         static void PrintZoo(List<Animal> animals)
         {
-            foreach (var animal in animals)
+            try
             {
-                animal.Describe();
+                foreach (var animal in animals)
+                {
+                    animal.Describe();
+                }
+                Console.WriteLine();
             }
-            Console.WriteLine();
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error printing zoo: {ex.Message}");
+            }
         }
     }
 }

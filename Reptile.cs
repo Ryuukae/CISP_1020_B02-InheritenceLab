@@ -4,7 +4,7 @@ using InheritanceLab;
 namespace InheritanceLab
 {
     /// <summary>
-    /// Represents reptiles, and includes an additional property, HasRattler.
+    /// Represents reptiles, and includes an additional property, CanRegrowTail.
     /// This class extends the <see cref="Animal"/> class and adds behaviour specific to reptiles.
     /// </summary>
     public class Reptile : Animal
@@ -23,6 +23,7 @@ namespace InheritanceLab
         /// <param name="age">The age of the reptile.</param>
         /// <param name="species">The species of the reptile.</param>
         /// <param name="canRegrowTail">Indicates whether the reptile can regrow its tail.</param>
+        /// <returns>A new instance of the <see cref="Reptile"/> class.</returns>
         public Reptile(string name, int age, string species, bool canRegrowTail) : base(name, age, species)
         {
             CanRegrowTail = canRegrowTail;

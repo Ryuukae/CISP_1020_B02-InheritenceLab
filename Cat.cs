@@ -14,6 +14,7 @@ namespace InheritanceLab
         /// <param name="name">The name of the cat.</param>
         /// <param name="age">The age of the cat.</param>
         /// <param name="species">The species of the cat.</param>
+        /// <returns>An instance of the <see cref="Cat"/> class.</returns>
         public Cat(string name, int age, string species) : base(name, age, species) { }
 
         /// <summary>
